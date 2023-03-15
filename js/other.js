@@ -22,7 +22,7 @@ async function fetchActors(){
 }
 function display(object){
     console.log(object);
-    console.log(object.genres[0].name);
+    // console.log(object.genres[0].name);
     movieDetails.style.background = `url(${imgUrl}${object.backdrop_path ?? object.poster_path})`;
     movieDetails.style.backgroundSize = `cover`;
     movieDetails.style.backgroundPosition = `center`;
@@ -33,7 +33,7 @@ function display(object){
     </div>
     <div class="details">
         <h1 class="movie-name">${object.title ?? object.name}</h1>
-        <h5 class="release_date">${object.release_date ?? object.first_air_date} • ${object.genres[0].name}</h5>
+        <h5 class="release_date">${object.release_date ?? object.first_air_date} </h5>
         <div class="detailss">
             <div class="vote">
                 ${Math.round(object.vote_average * 10)} <sup class="sup">%</sup>

@@ -23,7 +23,7 @@ const pp = document.getElementById("pp");
 // } from "./urls.js";
 
 
-async function fetchApi(url, media_type){
+async function fetchApi(url){
   await fetch(mainUrl+url+"?api_key="+apiKey)
   .then(result => result.json())
   .then(object =>  display(object.results))
@@ -45,7 +45,7 @@ function display(array){
 function card(user, media_type){
   movie_list.innerHTML +=
   `
-    <div class="movie" id="movie" onclick="details(\`${user.id}\`,\`${media_type}\`, \`${user.title}\`, \`${user.name}\`)">
+    <div class="movie" id="movie" onclick="details(\`${user.id}\`,\`${user.media_type ?? media_type}\`, \`${user.title}\`, \`${user.name}\`)">
             <img class="movie_photo" id="movie_photo" src="${imgUrl+user.poster_path}" alt="">
             <div class="vote">${Math.floor(user.vote_average*10)}%</div>
             <p class="movie_name">${user.name ?? user.title}</p>
@@ -75,7 +75,7 @@ function displayy(array){
 function cardd(user, media_type){
   tv_list.innerHTML +=
   `
-    <div class="movie" id="movie" onclick="details(\`${user.id}\`,\`${media_type}\`, \`${user.title}\`, \`${user.name}\`)">
+    <div class="movie" id="movie" onclick="details(\`${user.id}\`,\`${user.media_type ?? media_type}\`, \`${user.title}\`, \`${user.name}\`)">
             <img class="movie_photo" id="movie_photo" src="${imgUrl+user.poster_path}" alt="">
             <div class="vote">${Math.floor(user.vote_average*10)}%</div>
             <p class="movie_name">${user.name ?? user.title}</p>
@@ -85,7 +85,7 @@ function cardd(user, media_type){
 }  
 
 
-async function fetchApiii(url, media_type){
+async function fetchApiii(url){
   await fetch(mainUrl+url+"?api_key="+apiKey)
   .then(result => result.json())
   .then(object =>  displayyy(object.results))
@@ -107,7 +107,7 @@ function displayyy(array){
 function carddd(user, media_type){
   trailer_list.innerHTML +=
   `
-      <div class="trailer" onclick="details(\`${user.id}\`,\`${media_type}\`, \`${user.title}\`, \`${user.name}\`)">
+      <div class="trailer" onclick="details(\`${user.id}\`,\`${user.media_type ?? media_type}\`, \`${user.title}\`, \`${user.name}\`)">
         <img src="${imgUrl+user.poster_path}" class="trailer-photo" alt="">
         
         <h2 class="trailer-name">${user.name ?? user.title}</h2>
@@ -117,16 +117,16 @@ function carddd(user, media_type){
 
 
 function details(id, media_type , title, name){
-  location.replace(`${location.protocol}other.html?id=${id}&media_type=${media_type}`);
+  location.href = `${location.protocol}other.html?id=${id}&media_type=${media_type}`;
   // console.log(id);
 }
 
 
 
   
-  fetchApi("/trending/all/day", "movie");
-  fetchApii("/tv/on_the_air" , "tv")
-  fetchApiii("/movie/popular", "movie")
+  fetchApi("/trending/all/day");
+  fetchApii("/tv/on_the_air")
+  fetchApiii("/movie/popular")
 
 
 

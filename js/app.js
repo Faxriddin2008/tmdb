@@ -117,7 +117,7 @@ function carddd(user){
 
 
 function details(id, media_type , title, name){
-  location.replace(`${location.protocol}${location.host}other.html?id=${id}&media_type=${media_type}`);
+  location.replace(`${location.protocol}other.html?id=${id}&media_type=${media_type}`);
   // console.log(id);
 }
 

@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Edu+QLD+Beginner&family=Itim&family=Lobster&family=Oswald:wght@300&family=Poor+Story&family=Poppins&family=Square+Peg&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Edu+QLD+Beginner&family=Itim&family=Lobster&family=Oswald:wght@300&family=Poor+Story&family=Poppins&family=Source+Sans+Pro&family=Square+Peg&display=swap');
+:root{
+    --tmdbLightergreen: rgb(192, 254, 207);
+    --tmdbLightgreen: rgb(30, 213, 169);
+    --tmdbLogoOrange: rgb(253, 193, 112);
+    --tmdbLogoRed: rgb(217, 59, 99);
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+nav {
+    display: flex;
+    /* position: fixed; */
+    width: 100%;
+}
+.menu{
+    width: 100%;
+    height: 64px;
+    display: flex;
+    justify-content: left;
+    gap: 40px;
+    padding-left: 50px;
+    padding-top: 22px;
+    list-style: none;
+    background: #032541;
+}
+.menu li a{
+    font-family: 'Itim' , cursive;
+    color: white;
+    text-decoration: none;
+}
+.menu2{
+    padding-left: 450px;
+}
+.logo{
+    width: 154px;
+    height: 20px;
+}
+.fa-square-plus{
+    width: 18px;
+    height: 20px;
+}
+.lang-btn{
+    border: 1px solid white;
+    border-radius: 3px;
+    padding: 5px;
+}
+.lang-btn:hover{
+    background: white;
+    color: #032541;
+}
+sup{
+    background: red;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 50%;
+}
+.profile{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-top: -5px;
+}
+.fa-magnifying-glass{
+    color: aqua;
+}
+
+.movies{
+    /* padding-left: 5px; */
+    background: #fff;
+    margin-top: 20px;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* cursor: pointer; */
+    opacity: 0;
+    /* display: none; */
+    /* border: 1px solid grey; */
+    /* gap: 10px; */
+    /* pointer-events: none; */
+}
+.dropdown-menu{
+    cursor: pointer;
+    user-select: none;
+}
+.people{
+    height: 30px;
+}
+.movies li a{
+    color: black;
+    /* font-family: sans-serif; */
+
+}
+.movies li{
+    /* margin-left: 10px; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    list-style: none;
+    border-radius: 5px;
+}
+.movies li:hover{
+    background-color: rgba(128, 128, 128, 0.096);
+}
+
+.dropdown-menu:focus + .movies{
+    /* display: block; */
+    opacity: 1;
+    /* color: #032541; */
+}

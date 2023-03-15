@@ -23,7 +23,7 @@ const pp = document.getElementById("pp");
 // } from "./urls.js";
 
 
-async function fetchApi(url){
+async function fetchApi(url, media_type){
   await fetch(mainUrl+url+"?api_key="+apiKey)
   .then(result => result.json())
   .then(object =>  display(object.results))
@@ -35,17 +35,17 @@ function display(array){
     const user = array[i];
     console.log(user);
     const {poster_path, backdrop_path, id, media_type, first_air_date, release_date, title, vote_average, name} = user;
-    card(user);
+    card(user, "movie");
   }
   
 }
 
 
 
-function card(user){
+function card(user, media_type){
   movie_list.innerHTML +=
   `
-    <div class="movie" id="movie" onclick="details(\`${user.id}\`,\`${user.media_type}\`, \`${user.title}\`, \`${user.name}\`)">
+    <div class="movie" id="movie" onclick="details(\`${user.id}\`,\`${media_type}\`, \`${user.title}\`, \`${user.name}\`)">
             <img class="movie_photo" id="movie_photo" src="${imgUrl+user.poster_path}" alt="">
             <div class="vote">${Math.floor(user.vote_average*10)}%</div>
             <p class="movie_name">${user.name ?? user.title}</p>
@@ -65,17 +65,17 @@ function displayy(array){
     const user = array[i];
     console.log(user);
     const {poster_path, backdrop_path, id, media_type, first_air_date, release_date, title, vote_average, name} = user;
-    cardd(user);
+    cardd(user , "tv");
   }
   
 }
 
 
 
-function cardd(user){
+function cardd(user, media_type){
   tv_list.innerHTML +=
   `
-    <div class="movie" id="movie" onclick="details(\`${user.id}\`,\`${user.media_type}\`, \`${user.title}\`, \`${user.name}\`)">
+    <div class="movie" id="movie" onclick="details(\`${user.id}\`,\`${media_type}\`, \`${user.title}\`, \`${user.name}\`)">
             <img class="movie_photo" id="movie_photo" src="${imgUrl+user.poster_path}" alt="">
             <div class="vote">${Math.floor(user.vote_average*10)}%</div>
             <p class="movie_name">${user.name ?? user.title}</p>
@@ -85,7 +85,7 @@ function cardd(user){
 }  
 
 
-async function fetchApiii(url){
+async function fetchApiii(url, media_type){
   await fetch(mainUrl+url+"?api_key="+apiKey)
   .then(result => result.json())
   .then(object =>  displayyy(object.results))
@@ -97,17 +97,17 @@ function displayyy(array){
     const user = array[i];
     console.log(user);
     const {poster_path, backdrop_path, id, media_type, first_air_date, release_date, title, vote_average, name} = user;
-    carddd(user);
+    carddd(user, "movie");
   }
   
 }
 
 
 
-function carddd(user){
+function carddd(user, media_type){
   trailer_list.innerHTML +=
   `
-      <div class="trailer" onclick="details(\`${user.id}\`,\`${user.media_type}\`, \`${user.title}\`, \`${user.name}\`)">
+      <div class="trailer" onclick="details(\`${user.id}\`,\`${media_type}\`, \`${user.title}\`, \`${user.name}\`)">
         <img src="${imgUrl+user.poster_path}" class="trailer-photo" alt="">
         
         <h2 class="trailer-name">${user.name ?? user.title}</h2>
@@ -124,9 +124,9 @@ function details(id, media_type , title, name){
 
 
   
-  fetchApi("/trending/all/day");
-  fetchApii("/tv/on_the_air")
-  fetchApiii("/movie/popular")
+  fetchApi("/trending/all/day", "movie");
+  fetchApii("/tv/on_the_air" , "tv")
+  fetchApiii("/movie/popular", "movie")
 
 
 

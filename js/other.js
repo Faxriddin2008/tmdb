@@ -8,7 +8,7 @@ const mainUrl = "https://api.themoviedb.org/3";
 const apiKey = "18527347a9a13a6ec4a8563570d0507c";
 const imgUrl = "https://image.tmdb.org/t/p/original"
 const movieDetails = document.getElementById("movieDetails");
-const actors = document.getElementById('actors');
+const actors = document.getElementById("actors");
 async function fetchMovie(){
     await fetch(`${mainUrl}/${media_type}/${id}?api_key=${apiKey}`)
     .then(result => result.json())
